@@ -52,6 +52,7 @@
 #endif
 
 #ifdef BEAM_ASSET_SWAP_SUPPORT
+#include "wallet/client/extensions/broadcast_gateway/broadcast_router.h"
 #include "wallet/client/extensions/dex_board/dex_board.h"
 #include "wallet/transactions/dex/dex_tx_builder.h"
 #include "wallet/transactions/dex/dex_tx.h"

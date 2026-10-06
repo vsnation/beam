@@ -804,22 +804,42 @@ OnRequest(peers)
 
 OnRequest(swap_offers)
 {
+#ifdef BEAM_ATOMIC_SWAP_SUPPORT
     return _backend.get_swap_offers();
+#else
+    Exc::Fail("atomic swaps are not supported by this build");
+    return json();
+#endif
 }
 
 OnRequest(swap_totals)
 {
+#ifdef BEAM_ATOMIC_SWAP_SUPPORT
     return _backend.get_swap_totals();
+#else
+    Exc::Fail("atomic swaps are not supported by this build");
+    return json();
+#endif
 }
 
 OnRequest(asset_swaps)
 {
+#ifdef BEAM_ASSET_SWAP_SUPPORT
     return _backend.get_asset_swaps();
+#else
+    Exc::Fail("asset swaps are not supported by this build");
+    return json();
+#endif
 }
 
 OnRequest(asset_swaps_totals)
 {
+#ifdef BEAM_ASSET_SWAP_SUPPORT
     return _backend.get_asset_swaps_totals();
+#else
+    Exc::Fail("asset swaps are not supported by this build");
+    return json();
+#endif
 }
 
 OnRequest(contracts)
